@@ -1,0 +1,156 @@
+////
+/// Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a
+/// copy of this software and associated documentation files (the "Software"),
+/// to deal in the Software without restriction, including without limitation
+/// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+/// and/or sell copies of the Software, and to permit persons to whom the
+/// Software is furnished to do so, subject to the following conditions:
+///
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL
+/// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+/// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+/// DEALINGS
+////
+
+// ----------------------------------------------------------------------------
+// Rules
+// ----------------------------------------------------------------------------
+
+// Color variables
+:root {
+  @extend %root;
+
+  // Primary color shades - Catppuccin Latte
+  --md-primary-fg-color:               #8839ef;  // Mauve
+  --md-primary-fg-color--light:        #ea76cb;  // Pink
+  --md-primary-fg-color--dark:         #7287fd;  // Lavender
+  --md-primary-bg-color:               #eff1f5;  // Base
+  --md-primary-bg-color--light:        rgba(239, 241, 245, 0.7);
+
+  // Accent color shades - Catppuccin Latte
+  --md-accent-fg-color:                #1e66f5;  // Blue
+  --md-accent-fg-color--transparent:   rgba(30, 102, 245, 0.1);
+  --md-accent-bg-color:                #eff1f5;  // Base
+  --md-accent-bg-color--light:         rgba(239, 241, 245, 0.7);
+}
+
+// ----------------------------------------------------------------------------
+
+// Allow to explicitly use color schemes in nested content
+[data-md-color-scheme="default"] {
+  @extend %root;
+
+  // Indicate that the site is rendered with a light color scheme
+  color-scheme: light;
+
+  // Hide images for dark mode
+  img[src$="#only-dark"],
+  img[src$="#gh-dark-mode-only"] {
+    display: none;
+  }
+}
+
+// ----------------------------------------------------------------------------
+// Placeholders
+// ----------------------------------------------------------------------------
+
+// Default theme, i.e. light mode
+%root {
+
+  // Catppuccin Latte theme colors
+  --md-hue: 266deg;
+
+  // Default color shades - Catppuccin Latte
+  --md-default-fg-color:               #4c4f69;  // Text
+  --md-default-fg-color--light:        #6c6f85;  // Subtext 0
+  --md-default-fg-color--lighter:      #9ca0b0;  // Overlay 0
+  --md-default-fg-color--lightest:     #ccd0da;  // Surface 0
+  --md-default-bg-color:               #eff1f5;  // Base
+  --md-default-bg-color--light:        #e6e9ef;  // Mantle
+  --md-default-bg-color--lighter:      #dce0e8;  // Crust
+  --md-default-bg-color--lightest:     #bcc0cc;  // Surface 1
+
+  // Code color shades - Catppuccin Latte
+  --md-code-fg-color:                  #4c4f69;  // Text
+  --md-code-bg-color:                  #e6e9ef;  // Mantle
+  --md-code-bg-color--light:           #dce0e8;  // Crust
+  --md-code-bg-color--lighter:         #ccd0da;  // Surface 0
+
+  // Code highlighting color shades - Catppuccin Latte
+  --md-code-hl-color:                  #1e66f5;  // Blue
+  --md-code-hl-color--light:           rgba(30, 102, 245, 0.1);
+
+  // Code highlighting syntax color shades - Catppuccin Latte
+  --md-code-hl-number-color:           #fe640b;  // Peach
+  --md-code-hl-special-color:          #ea76cb;  // Pink
+  --md-code-hl-function-color:         #8839ef;  // Mauve
+  --md-code-hl-constant-color:         #7287fd;  // Lavender
+  --md-code-hl-keyword-color:          #d20f39;  // Red
+  --md-code-hl-string-color:           #40a02b;  // Green
+  --md-code-hl-name-color:             #1e66f5;  // Blue
+  --md-code-hl-operator-color:         #04a5e5;  // Sky
+  --md-code-hl-punctuation-color:      #6c6f85;  // Subtext 0
+  --md-code-hl-comment-color:          #9ca0b0;  // Overlay 0
+  --md-code-hl-generic-color:          #df8e1d;  // Yellow
+  --md-code-hl-variable-color:         #dc8a78;  // Rosewater
+
+  // Typeset color shades
+  --md-typeset-color:                  var(--md-default-fg-color);
+
+  // Typeset `a` color shades
+  --md-typeset-a-color:                var(--md-primary-fg-color);
+
+  // Typeset `del` and `ins` color shades - Catppuccin Latte
+  --md-typeset-del-color:              rgba(210, 15, 57, 0.15);   // Red
+  --md-typeset-ins-color:              rgba(64, 160, 43, 0.15);   // Green
+
+  // Typeset `kbd` color shades - Catppuccin Latte
+  --md-typeset-kbd-color:              #ccd0da;  // Surface 0
+  --md-typeset-kbd-accent-color:       #bcc0cc;  // Surface 1
+  --md-typeset-kbd-border-color:       #9ca0b0;  // Overlay 0
+
+  // Typeset `mark` color shades - Catppuccin Latte
+  --md-typeset-mark-color:             rgba(223, 142, 29, 0.5);   // Yellow
+
+  // Typeset `table` color shades - Catppuccin Latte
+  --md-typeset-table-color:            rgba(108, 111, 133, 0.12); // Subtext 0
+  --md-typeset-table-color--light:     rgba(108, 111, 133, 0.035);
+
+  // Admonition color shades
+  --md-admonition-fg-color:            var(--md-default-fg-color);
+  --md-admonition-bg-color:            var(--md-default-bg-color);
+
+  // Warning color shades - Catppuccin Latte
+  --md-warning-fg-color:              #4c4f69;  // Text
+  --md-warning-bg-color:              #df8e1d;  // Yellow
+
+  // Footer color shades - Catppuccin Latte
+  --md-footer-fg-color:                #eff1f5;  // Base
+  --md-footer-fg-color--light:         #ccd0da;  // Surface 0
+  --md-footer-fg-color--lighter:       #9ca0b0;  // Overlay 0
+  --md-footer-bg-color:                #4c4f69;  // Text
+  --md-footer-bg-color--dark:          #5c5f77;  // Subtext 1
+
+  // Shadow depth 1
+  --md-shadow-z1:
+    0 #{px2rem(4px)} #{px2rem(10px)} hsla(0, 0%, 0%, 0.05),
+    0 0              #{px2rem(1px)}  hsla(0, 0%, 0%, 0.1);
+
+  // Shadow depth 2
+  --md-shadow-z2:
+    0 #{px2rem(4px)} #{px2rem(10px)} hsla(0, 0%, 0%, 0.1),
+    0 0              #{px2rem(1px)}  hsla(0, 0%, 0%, 0.25);
+
+  // Shadow depth 3
+  --md-shadow-z3:
+    0 #{px2rem(4px)} #{px2rem(10px)} hsla(0, 0%, 0%, 0.2),
+    0 0              #{px2rem(1px)}  hsla(0, 0%, 0%, 0.35);
+}
