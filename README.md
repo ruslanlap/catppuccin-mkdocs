@@ -87,6 +87,28 @@ theme:
         name: Switch to light mode
 ```
 
+### Enabling Frappé or Macchiato
+
+The theme also includes the intermediate Catppuccin flavors. Select them by
+referencing their schemes in `theme.palette`:
+
+```yaml
+theme:
+  name: catppuccin
+  palette:
+    # Catppuccin Frappé
+    - scheme: frappe
+      toggle:
+        icon: material/weather-sunset
+        name: Switch to Macchiato
+
+    # Catppuccin Macchiato
+    - scheme: macchiato
+      toggle:
+        icon: material/weather-night
+        name: Switch to Latte
+```
+
 ### Advanced Configuration
 
 Customize further with Material for MkDocs features:
